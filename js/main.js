@@ -1,6 +1,6 @@
 // funzione per creare la griglia
 function generateGrill() {
-  for (var i = 0; i < 32; i++) {
+  for (var i = 0; i < 36; i++) {
     $('.grill').append('<div class="items"></div>');
   }
 }
@@ -17,12 +17,13 @@ $(document).ready(function() {
 
   function showCell() {
      var itemsClick = $(this);
-
+     console.log(itemsClick);
      // ajax call
      $.ajax({
        url: "https://flynn.boolean.careers/exercises/api/random/int",
        method: 'GET',
-       succes: function (data,condition) {
+       success: function (data) {
+
           // Se il numero è <= 5 diventa giallo
          if (data.response <= 5 && !itemsClick.hasClass('active')) {
 
@@ -35,8 +36,8 @@ $(document).ready(function() {
          }
        },
 
-       error: function (request,condition,fault) {
-         alert("Error. " + " " + request + " " + condition + " " + fault);
+       error: function (request) {
+         alert("Error. " + " " + request + " " + " ");
        }
 
      })

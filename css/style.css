@@ -16,7 +16,7 @@ body{
   height: 600px;
 }
 
-.grill > .item{
+.grill > .items{
   width: 100px;
   height: 100px;
   float: left;
