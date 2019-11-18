@@ -22,7 +22,7 @@ $(document).ready(function() {
      $.ajax({
        url: "https://flynn.boolean.careers/exercises/api/random/int",
        method: 'GET',
-       succes: function () {
+       succes: function (data,condition) {
           // Se il numero è <= 5 diventa giallo
          if (data.response <= 5 && !itemsClick.hasClass('active')) {
 
@@ -33,7 +33,13 @@ $(document).ready(function() {
            itemsClick.css('background-color', 'green').addClass('active').html(data.response);
 
          }
+       },
+
+       error: function (request,condition,fault) {
+         alert("Error. " + " " + request + " " + condition + " " + fault);
        }
+
      })
+
   }
-})
+});
