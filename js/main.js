@@ -28,11 +28,15 @@ $(document).ready(function() {
          if (data.response <= 5 && !itemsClick.hasClass('active')) {
 
            itemsClick.css('background-color', 'yellow').addClass('active').html(data.response);
+
+           itemsClick.off('click');
+
            // se è > di 5 il quadrato diventa verde.
          }else if (data.response > 5 && !itemsClick.hasClass('active')) {
 
            itemsClick.css('background-color', 'green').addClass('active').html(data.response);
 
+            itemsClick.off('click');
          }
        },
 
